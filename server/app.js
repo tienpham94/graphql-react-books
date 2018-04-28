@@ -7,7 +7,7 @@ const cors = require("cors");
 const { username, password } = require("./env");
 const app = express();
 
-app.use(cors);
+app.use(cors());
 
 mongoose.connect(
   `mongodb://${username}:${password}@ds159489.mlab.com:59489/gql-react-project`
