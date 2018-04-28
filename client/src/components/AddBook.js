@@ -7,16 +7,14 @@ import {
 } from "../queries/queries";
 
 class AddBook extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      genre: "",
-      authorId: ""
-    };
-  }
-  displayAuthors() {
-    var data = this.props.getAuthorsQuery;
+  state = {
+    name: "",
+    genre: "",
+    authorId: ""
+  };
+
+  displayAuthors = () => {
+    const data = this.props.getAuthorsQuery;
     if (data.loading) {
       return <option disabled>Loading authors</option>;
     } else {
@@ -29,7 +27,7 @@ class AddBook extends Component {
       });
     }
   }
-  submitForm(e) {
+  submitForm = (e) => {
     e.preventDefault();
     // use the addBookMutation
     this.props.addBookMutation({
@@ -43,7 +41,7 @@ class AddBook extends Component {
   }
   render() {
     return (
-      <form id="add-book" onSubmit={this.submitForm.bind(this)}>
+      <form id="add-book" onSubmit={this.submitForm}>
         <div className="field">
           <label>Book name:</label>
           <input

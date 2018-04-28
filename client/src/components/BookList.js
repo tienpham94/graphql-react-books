@@ -6,12 +6,9 @@ import { getBooksQuery } from "../queries/queries";
 import BookDetails from "./BookDetails";
 
 class BookList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: null
-    };
-  }
+  state = {
+    selected: null
+  };
   displayBooks() {
     var data = this.props.data;
     if (data.loading) {
